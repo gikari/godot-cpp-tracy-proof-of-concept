@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "tracy",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-tracy",
+      "cacheVariables": {
+        "EXAMPLE_USE_TRACY": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "displayName": "Build Release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "tracy",
+      "displayName": "Build Tracy",
+      "configurePreset": "tracy"
+    }
+  ]
+}
